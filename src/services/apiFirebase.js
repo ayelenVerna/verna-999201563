@@ -2,6 +2,7 @@
 import { addDoc, collection, getDocs, updateDoc, doc, deleteDoc } from "firebase/firestore"
 import { db } from "../config/firebase.js"
 
+
 // skd firebase
 
 // users, products, providers, clients, purchases

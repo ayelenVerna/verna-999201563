@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Home } from "../views/Home"
-import { QuienesSomos } from "../views/QuienesSomos"
+import { Proyecto } from "../views/Proyecto"
 import { NotFound } from "../views/NotFound"
 import { Register } from "../views/Register"
 import { Login } from "../views/Login"
@@ -11,7 +11,7 @@ const RouterApp = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-        <Route path="/quienes-somos" element={<QuienesSomos />} />
+        <Route path="/proyecto" element={<Proyecto />} />
         <Route path="/registrarme" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<NotFound />} />

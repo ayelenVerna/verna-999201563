@@ -90,24 +90,13 @@ const Home = () => {
       <Header />
       <main>
         <section className="bio">
-          <h2>Nuestra misión</h2>
+          <h2>App de Recetas</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum esse
-            labore amet architecto. Similique excepturi sint rem praesentium
-            veritatis optio suscipit eligendi non harum fugiat nihil autem,
-            reprehenderit maiores fuga enim ducimus? Reiciendis eos laboriosam
-            ut totam tempora qui asperiores delectus in. Laudantium distinctio
-            nihil ratione fugiat nesciunt facilis libero, cumque saepe dicta,
-            eaque quae voluptas numquam corporis culpa veritatis iste ab atque
-            dolores laborum, eum minus accusamus sapiente ullam. Harum expedita
-            doloribus ut eligendi provident itaque corporis est non assumenda a,
-            saepe nisi dignissimos architecto nihil vel voluptatum. Temporibus
-            commodi exercitationem libero minus quas in perferendis incidunt
-            corrupti maiores!
+            Bienvenido a la App de Recetas donde podes guardar todas tus recetas en un mismo lugar
           </p>
         </section>
         <section>
-          <h2>Agregar producto</h2>
+          <h2>Agregar receta</h2>
           <form onSubmit={handleSubmit}>
             <input
               name="name"
@@ -157,7 +146,7 @@ const Home = () => {
           </form>
         </section>
         <section className="products">
-          <h2>Nuestros productos</h2>
+          <h2>Mis Recetas</h2>
           <div className="products-list">
             {products.map((product) => (
               <div key={product.id}>
