@@ -1,7 +1,8 @@
 import { useState } from "react"
-import { Header } from "../components/Header.jsx"
+import { useNavigate } from "react-router-dom"
+import { Header } from "../components/Header"
 import "../styles/views/Register.css"
-import { useAuth } from "../context/AuthContext.jsx"
+import { useAuth } from "../context/AuthContext"
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -9,9 +10,9 @@ const Login = () => {
     password: ""
   })
   const [error, setError] = useState(null)
-  const [success, setSuccess] = useState(null)
 
   const { login } = useAuth()
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,12 +22,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError(null)
-    setSuccess(null)
+
     try {
       await login(formData.email, formData.password)
-      setSuccess("Logueado con éxito.")
-    } catch (error) {
-      setError("Error al loguear usuario.")
+      navigate("/")
+    } catch {
+      setError("Error al loguear usuario. Puede que el Usuario ya exista o la Clave sea incorrecta")
     }
   }
 
@@ -58,7 +59,6 @@ const Login = () => {
 
             <button type="submit">Ingresar</button>
             {error && <p className="error">{error}</p>}
-            {success && <p className="success">{success}</p>}
           </form>
         </section>
       </main>
@@ -67,3 +67,4 @@ const Login = () => {
 }
 
 export { Login }
+

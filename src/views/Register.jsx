@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { Header } from "../components/Header"
 import "../styles/views/Register.css"
 import { useAuth } from "../context/AuthContext"
@@ -9,9 +10,9 @@ const Register = () => {
     password: ""
   })
   const [error, setError] = useState(null)
-  const [success, setSuccess] = useState(null)
 
   const { register } = useAuth()
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,12 +22,16 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError(null)
-    setSuccess(null)
+
     try {
       await register(formData.email, formData.password)
-      setSuccess("Usuario creado con éxito.")
-    } catch (error) {
-      setError("Error al crear usuario.")
+      navigate("/", {
+  state: { message: "Registro exitoso. Bienvenida/o 🎉" }
+})
+    } catch {
+      setError(
+        "Error al crear usuario. Puede que el usuario ya exista o la contraseña no sea válida."
+      )
     }
   }
 
@@ -58,7 +63,6 @@ const Register = () => {
 
             <button type="submit">Registrarse</button>
             {error && <p className="error">{error}</p>}
-            {success && <p className="success">{success}</p>}
           </form>
         </section>
       </main>
