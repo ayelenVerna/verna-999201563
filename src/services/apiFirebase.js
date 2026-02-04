@@ -1,11 +1,7 @@
-// SDK -> software development kit de firebase
 import { addDoc, collection, getDocs, updateDoc, doc, deleteDoc } from "firebase/firestore"
 import { db } from "../config/firebase.js"
 
 
-// skd firebase
-
-// users, products, providers, clients, purchases
 const productsCollection = collection(db, "products")
 
 
@@ -42,3 +38,6 @@ const deleteProduct = async (id) => {
 }
 
 export { getAllProducts, addNewProduct, updateProduct, deleteProduct }
+
+
+
