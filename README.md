@@ -1,16 +1,32 @@
-# React + Vite
+#Aplicación de Recetas:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A-Proyecto: El proyecto se trata de una App Web desarrollada en Rreact que permite a los usuarios registrarse, iniciar sesion y compartir recetas. Cada usuario registrado y logeado puede crear, modificar y eliminar recetas.
 
-Currently, two official plugins are available:
+B-Instalación: 
+1-Clonar el repositorio desde GitHub
+2-Ejecutar npm install para instalar dependencias
+3-Instalar i react-router-rom (ruteo), npm i firebase (backend)
+4-Crear Archivo .env donde se incluiran las credenciales de firebase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+C-Estructura:
+dentro de SRC:
+-components:piezas reutilizables
+-config: credenciales firabase a completar en env.
+-context: autenticacion, contexto global
+-router: logica de path de cada pagina
+-services: api
+-styles: components , views
+-views: vistas de las paginas
+-main: punto de entrada de la app
 
-## React Compiler
+Por fuera se creo archivo .env (credenciales firebase, que sera ignorado por git)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+D-Manejo de Autenticación (AuthContext)
+La App usa manejo global de autenticación. Gracias al uso de AuthContext se garantiza que solo los usurios registrados accedan al CRUD de recetas.
+Este contexto centraliza:
+-el estado del usuario
+-la persistencia de la sesión
+-las funciones de login y logout
+-control de acceso a rutas y funcionalidades restringidas
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
