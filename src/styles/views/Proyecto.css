@@ -1,0 +1,84 @@
+/* CONTENEDOR PRINCIPAL */
+.proyecto {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* TÍTULO PRINCIPAL */
+.proyecto h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1f2d24;
+}
+
+/* SECCIONES */
+.proyecto section {
+  background-color: #f8f9f8;
+  padding: 1.8rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* TÍTULOS DE SECCIÓN */
+.proyecto section h2 {
+  font-size: 1.4rem;
+  color: #2f4f3e;
+  border-left: 4px solid #9db8a0;
+  padding-left: 0.6rem;
+}
+
+/* TEXTO */
+.proyecto p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* LISTAS */
+.proyecto ul {
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.proyecto li {
+  font-size: 0.95rem;
+  color: #2b2b2b;
+}
+
+/* TEXTO DESTACADO */
+.proyecto strong {
+  color: #1f2d24;
+}
+
+/* CÓDIGO */
+.proyecto code {
+  background-color: #e6efe9;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .proyecto {
+    padding: 2rem 1rem;
+  }
+
+  .proyecto h1 {
+    font-size: 1.9rem;
+  }
+
+  .proyecto section {
+    padding: 1.4rem;
+  }
+}
