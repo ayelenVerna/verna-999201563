@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Header } from "../components/Header"
 import "../styles/views/Register.css"
 import { useAuth } from "../context/AuthContext"
+import { Popup } from "../components/Popup"
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Login = () => {
     password: ""
   })
   const [error, setError] = useState(null)
+  const [popupMessage, setPopupMessage] = useState("") 
 
   const { login } = useAuth()
   const navigate = useNavigate()
@@ -25,9 +27,16 @@ const Login = () => {
 
     try {
       await login(formData.email, formData.password)
-      navigate("/")
+
+      
+      setPopupMessage("Bienvenido a la Comunidad de Recetas")
+     
+      setTimeout(() => {
+        navigate("/") 
+      }, 3000) 
+
     } catch {
-      setError("Error al loguear usuario. Puede que el Usuario ya exista o la Clave sea incorrecta")
+      setError("Error al loguear usuario. Puede que el usuario no exista o la contraseña sea incorrecta")
     }
   }
 
@@ -62,6 +71,9 @@ const Login = () => {
           </form>
         </section>
       </main>
+
+      {/* Pop-up */}
+      <Popup message={popupMessage} onClose={() => setPopupMessage("")} />
     </>
   )
 }

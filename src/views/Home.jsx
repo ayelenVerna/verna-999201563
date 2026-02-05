@@ -9,6 +9,8 @@ import {
   deleteProduct as deleteProductFirebase,
 } from "../services/apiFirebase.js";
 import { RecipeModal } from "../components/RecipeModal";
+import { Popup } from "../components/Popup";
+
 
 
 const Home = () => {
@@ -17,6 +19,9 @@ const Home = () => {
 
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [showDescription, setShowDescription] = useState(false);
+
+  const [popupMessage, setPopupMessage] = useState(""); 
+
 
   const [formData, setFormData] = useState({
     name: "",
@@ -50,9 +55,12 @@ const Home = () => {
       );
       setProducts(updatedProducts);
       setEditingProduct(null);
+      setPopupMessage("Receta modificada con éxito");
+      
     } else {
       const addedProduct = await addNewProductFirebase(formData);
       setProducts([addedProduct, ...products]);
+      setPopupMessage("Receta agregada con éxito");
     }
 
     setFormData({
@@ -80,6 +88,7 @@ const Home = () => {
 
     await deleteProductFirebase(id);
     setProducts(products.filter((p) => p.id !== id));
+    setPopupMessage("Receta borrada con éxito");
   };
 
   const handleOpenDescription = (product) => {
@@ -107,7 +116,8 @@ const Home = () => {
 
         <section>
           <h2>{editingProduct ? "Editar receta" : "Agregar receta"}</h2>
-
+          
+          
           <form onSubmit={handleSubmit}>
             <input
               name="name"
@@ -184,6 +194,8 @@ const Home = () => {
   product={selectedProduct}
   onClose={handleCloseDescription}
 />
+<Popup message={popupMessage} onClose={() => setPopupMessage("")} />
+
 
       
       <Footer />

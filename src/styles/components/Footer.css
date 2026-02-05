@@ -1,0 +1,13 @@
+footer {
+  background-color: green; /* fondo suave */
+  padding: 1rem 0;           /* espacio arriba y abajo */
+  text-align: center;        /* centrar texto */
+  font-size: 0.95rem;
+  color: white;
+  border-top: 1px solid #ddd; /* línea superior */
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
+}

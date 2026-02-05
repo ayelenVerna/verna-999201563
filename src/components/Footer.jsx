@@ -1,7 +1,9 @@
+import "../styles/components/Footer.css";
+
 const Footer = () => {
   return (
     <footer>
-      <p>Sitio desarrollado por UTN</p>
+      <p>TP final Curso React UTN</p>
     </footer>
   )
 }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { Header } from "../components/Header"
 import "../styles/views/Register.css"
 import { useAuth } from "../context/AuthContext"
+import { Popup } from "../components/Popup"
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Register = () => {
     password: ""
   })
   const [error, setError] = useState(null)
+  const [popupMessage, setPopupMessage] = useState("") 
 
   const { register } = useAuth()
   const navigate = useNavigate()
@@ -25,9 +27,13 @@ const Register = () => {
 
     try {
       await register(formData.email, formData.password)
-      navigate("/", {
-  state: { message: "Registro exitoso. Bienvenida/o 🎉" }
-})
+
+      setPopupMessage("Usuario creado con éxito")
+
+      setTimeout(() => {
+        navigate("/") 
+      }, 3000) 
+
     } catch {
       setError(
         "Error al crear usuario. Puede que el usuario ya exista o la contraseña no sea válida."
@@ -66,8 +72,12 @@ const Register = () => {
           </form>
         </section>
       </main>
+
+      {/* Pop-up */}
+      <Popup message={popupMessage} onClose={() => setPopupMessage("")} />
     </>
   )
 }
 
 export { Register }
+
